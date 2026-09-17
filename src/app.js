@@ -66,7 +66,7 @@ app.get('/api/productos/:id', (req, res) => {
  * el código HTTP 201.
  */
 app.post('/api/productos', (req, res) => {
-  const { nombre, precio, descripcion = '' } = req.body;
+  const { nombre, precio, descripcion = '' } = req.body || {};
 
   if (!nombre || precio === undefined || precio === null) {
     return res.status(400).json({ mensaje: 'El nombre y el precio son obligatorios' });
